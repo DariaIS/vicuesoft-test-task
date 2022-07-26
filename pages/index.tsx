@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Header, Main, Cards, Footer } from "@components/scss";
+import { Header, Main, Footer } from "@components/scss";
 
 const Home: React.FC = () => {
   return (
@@ -13,7 +13,6 @@ const Home: React.FC = () => {
     >
       <Header />
       <Main />
-      <Cards />
       <Footer />
     </div>
   );
