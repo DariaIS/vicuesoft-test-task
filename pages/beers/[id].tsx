@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
 
+import { BeerInfo } from "@components/scss/beerInfo";
 import { beerType } from "@types";
-import { BeerInfo } from "@components/scss";
 
 type beerTypeProps = {
     beer: beerType;
