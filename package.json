@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "next build",
+    "export": "next export",
     "start": "next start"
   },
   "dependencies": {
