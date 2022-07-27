@@ -1,10 +1,11 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
-import { NextRouter, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Link from "next/link";
 import { GetServerSideProps } from "next";
 
 import { beerType } from "@types";
+import { Cards } from "@components/scss";
 
 type beersTypeProps = {
     beers: [beerType];
@@ -37,13 +38,7 @@ const Beers: FC<beersTypeProps> = ({ beers, page }) => {
 
     return (
         <>
-            <ul>
-                {beers && beers.map(({ id, name }) => (
-                    <li key={id}>
-                        <Link href={`/beers/${id}`}>{name}</Link>
-                    </li>
-                ))}
-            </ul>
+            <Cards beers={beers}/>
             <button
                 onClick={() => router.push(`/beers?page=${page - 1}`)}
                 disabled={page <= 1}
