@@ -8,7 +8,7 @@ type BeerProps = {
 };
 
 export const BeerInfo: React.FC<BeerProps> = ({ beer }) => {
-    const { name, image_url, description } = beer || {};
+    const { name, image_url, description, tagline, abv, food_pairing } = beer || {};
 
     return (
         <div className={styles.card}>

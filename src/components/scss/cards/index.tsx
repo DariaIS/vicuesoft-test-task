@@ -9,11 +9,11 @@ type CardsProps = {
 };
 
 export const Cards: React.FC<CardsProps> = ({ beers }) => {
-    
+
     return (
         <div className={styles.cards}>
             {beers && beers.map(beer => (
-                <Card beer={beer} key={beer.id}/>
+                <Card beer={beer} key={beer.id} />
             ))}
         </div>
     );

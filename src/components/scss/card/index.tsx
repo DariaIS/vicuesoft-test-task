@@ -15,11 +15,11 @@ export const Card: React.FC<CardProps> = ({ beer }) => {
     return (
         <div className={styles.card}>
             <img className={styles.img} src={image_url} />
-            <div className={styles.info}>
-                <span className={styles.name}>{name}</span>
+            <div>
+                <div className={styles.name}>{name}</div>
                 <div className={styles.description + ' description'}>{description.substring(0, 140) + '...'}</div>
                 <Link href={`/beers/${beer.id}`}>
-                    <a>More</a>
+                    <a className={styles.link}>More</a>
                 </Link>
             </div>
         </div>
