@@ -10,7 +10,6 @@ type beerTypeProps = {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const id = context.params!.id;
-    console.log(id);
     const data =
         await fetch(`https://api.punkapi.com/v2/beers/${id}`)
             .then((response) => {
@@ -29,9 +28,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Beer: FC<beerTypeProps> = ({ beer }) => (
-    <>
+    <div className='pageContainer section'>
         <BeerInfo beer={beer} />
-    </>
+    </div>
 );
 
 export default Beer;

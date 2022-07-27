@@ -5,5 +5,5 @@ export type beerType = {
     abv: string;
     description: string;
     image_url: string;
-    food_pairing: string;
+    food_pairing: [string];
 };
