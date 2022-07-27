@@ -1,21 +1,12 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import styles from "./index.module.scss";
 
-export type IButton = React.DetailedHTMLProps<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->;
+export type IButton = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: React.FC<IButton> = ({ children, ...props }) => {
-  return (
-    <a
-      {...props}
-      target="_blank"
-      href="https://pankod.github.io/superplate/"
-      rel="noopener noreferrer"
-      className={styles.button}
-    >
-      {children}
-    </a>
-  );
+export const Button: React.FC<IButton> = ({ children, ...rest }) => {
+    return (
+        <button type="button" className={styles.button} {...rest}>
+            {children}
+        </button>
+    );
 };

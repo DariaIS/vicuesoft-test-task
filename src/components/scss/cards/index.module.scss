@@ -1,17 +1,15 @@
 .cards {
-  display: flex;
-  flex-flow: row wrap;
-  flex: 1;
-  padding-bottom: 1rem;
+    display: grid;
+    grid-gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
 
-  @media (max-width: 575px) {
-    flex-direction: column;
-  }
-}
+    @media (min-width: 575px) {
+        grid-template-columns: repeat(3, 350px);
+    }
 
-.cardWrapper {
-  width: 25%;
-  @media (max-width: 575px) {
-    width: 100%;
-  }
+    @media (max-width: (575px - 1px)) {
+        flex-direction: column;
+        grid-template-columns: repeat(auto-fill, auto-fill);
+    }
 }

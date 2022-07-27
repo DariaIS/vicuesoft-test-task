@@ -1,0 +1,6 @@
+{   
+    "ignore": ["node_modules", ".next"],
+    "watch": ["src/**/*", "pages/**/*"],
+    "ext": "js json",
+    "exec": "next dev"
+}
