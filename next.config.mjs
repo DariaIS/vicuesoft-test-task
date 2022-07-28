@@ -4,8 +4,8 @@ const nextConfig = {
         loader: 'akamai',
         path: '',
     },
-    basePath: '/vicuesoft-test-task',
-    assetPrefix: '/vicuesoft-test-task',
+    basePath: '/vicuesoft-test-task/beers',
+    assetPrefix: '/vicuesoft-test-task/beers',
 };
 
 export default nextConfig;
