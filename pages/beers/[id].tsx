@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
     const id = context.params!.id;
     const data =
-        await fetch(`${prefix}/beers/${id}`)
+        await fetch(`vicuesoft-test-task/beers/${id}`)
             .then((response) => {
                 return response.json();
             })
