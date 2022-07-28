@@ -1,12 +1,11 @@
-/**
-   * @type {import('next').NextConfig}
-   */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
         loader: 'akamai',
         path: '',
     },
-    assetPrefix: './',
+    basePath: '/vicuesoft-test-task',
+    assetPrefix: '/vicuesoft-test-task',
 };
 
 export default nextConfig;
