@@ -2,6 +2,7 @@
 node_modules
 # next.js build files
 .next
+out
 # environment variables
 .env
 .env.*

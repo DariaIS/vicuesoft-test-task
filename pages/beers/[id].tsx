@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { GetServerSideProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import { BeerInfo } from "@components/scss/beerInfo";
 import { beerType } from "@types";
@@ -8,7 +8,14 @@ type beerTypeProps = {
     beer: beerType;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+    return {
+        paths: [],
+        fallback: 'blocking'
+    }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
     const id = context.params!.id;
     const data =
         await fetch(`https://api.punkapi.com/v2/beers/${id}`)
