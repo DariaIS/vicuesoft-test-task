@@ -6,11 +6,10 @@ import { Cards } from "@components/scss";
 
 type beersTypeProps = {
     beers: beerType[];
-    page: number;
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-    const data =
+export const getStaticProps: GetStaticProps<beersTypeProps> = async () => {
+    const data: beerType[] =
         await fetch(`https://api.punkapi.com/v2/beers`)
             .then((response) => {
                 return response.json();
