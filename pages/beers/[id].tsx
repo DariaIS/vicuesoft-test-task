@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useRouter } from 'next/router';
 
 import { BeerInfo } from "@components/scss/beerInfo";
 import { beerType } from "@types";
@@ -8,9 +9,7 @@ type beerTypeProps = {
     beer: beerType;
 }
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
-
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
     const beers: beerType[] = await fetch(`https://api.punkapi.com/v2/beers/`)
         .then((response) => {
             return response.json();
@@ -23,10 +22,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const id = context.params!.id;
-    const data =
-        await fetch(`${prefix}/beers/${id}`)
+export const getStaticProps: GetStaticProps<beerTypeProps> = async (context) => {
+    const id = context.params?.id as string;
+    const data: beerType[] =
+        await fetch(`https://api.punkapi.com/v2/beers/${id}`)
             .then((response) => {
                 return response.json();
             })
@@ -42,10 +41,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 };
 
-const Beer: FC<beerTypeProps> = ({ beer }) => (
-    <div className='pageContainer section'>
-        <BeerInfo beer={beer} />
-    </div>
-);
+const Beer: FC<beerTypeProps> = ({ beer }) => {
+    const router = useRouter();
+
+    if (router.isFallback) {
+        return <div>Loading......I'm sorry for the wait!!</div>;
+    }
+    return (
+        <div className='pageContainer section'>
+            <BeerInfo beer={beer} />
+        </div>
+    )
+};
 
 export default Beer;
