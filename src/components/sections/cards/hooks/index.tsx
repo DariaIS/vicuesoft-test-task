@@ -35,7 +35,6 @@ export const useCards = (props: Props) => {
     };
 
     useEffect(() => {
-        console.log('use');
         const data = searchData(props.beers);
         const range = calculateRange(data, props.cardsPerPage);
         setRange([...range]);
