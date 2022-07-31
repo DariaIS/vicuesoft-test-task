@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEventHandler } from 'react';
 
 import { beerType } from "@types";
 
@@ -11,6 +11,11 @@ type Props = {
 export const useCards = (props: Props) => {
     const [range, setRange] = useState([0]);
     const [slice, setSlice] = useState<beerType[]>([]);
+    const [searchName, setSearchName] = useState('');
+
+    const handleChangeInput: ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) => {
+        setSearchName(value);
+    };
 
     const calculateRange = (data: beerType[], cardsPerPage: number) => {
         const range = [];
@@ -21,20 +26,27 @@ export const useCards = (props: Props) => {
         return range;
     };
 
+    const searchData = (data: beerType[]) => {
+        return data.filter(element => (element.name.toString().toLowerCase().includes(searchName.toLowerCase())))
+    };
+
     const sliceData = (data: beerType[], page: number, cardsPerPage: number) => {
         return data.slice((page - 1) * cardsPerPage, page * cardsPerPage);
     };
 
     useEffect(() => {
-        const range = calculateRange(props.beers, props.cardsPerPage);
+        console.log('use');
+        const data = searchData(props.beers);
+        const range = calculateRange(data, props.cardsPerPage);
         setRange([...range]);
 
-        const slice = sliceData(props.beers, props.page, props.cardsPerPage);
+        const slice = sliceData(data, props.page, props.cardsPerPage);
         setSlice([...slice]);
-    }, [props.beers, setRange, props.page, setSlice]);
+    }, [props.beers, setRange, props.page, setSlice, searchName]);
 
     return {
         slice,
-        range
+        range,
+        handleChangeInput
     };
 };

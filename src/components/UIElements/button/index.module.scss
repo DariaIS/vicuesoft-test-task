@@ -8,10 +8,6 @@
     background-color: var(--white);
     color: var(--color-primary);
 
-    &:not(:last-child) {
-        margin-right: 1rem;
-    }
-
     &:hover {
         color: var(--white);
         background-color: var(--color-primary);
@@ -21,7 +17,6 @@
     &:disabled {
         color: var(--gray-dark);
         pointer-events: none;
-        border: none;
         border: 1px solid var(--gray-dark);
         background-color: var(--gray-light);
     }
