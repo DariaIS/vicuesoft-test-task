@@ -20,8 +20,6 @@ export const Cards: React.FC<CardsProps> = ({ beers }) => {
     } = useCards({ beers, page, cardsPerPage: 9 });
 
     useEffect(() => {
-        console.log('cards')
-
         if (slice.length < 1 && page !== 1) {
             setPage(page - 1);
         }
