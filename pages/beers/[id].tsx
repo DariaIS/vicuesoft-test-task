@@ -2,7 +2,7 @@ import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from 'next/router';
 
-import { BeerInfo } from "@components/scss/beerInfo";
+import { BeerInfo } from "@components/sections/beerInfo";
 import { beerType } from "@types";
 
 type beerTypeProps = {

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { GetStaticProps } from "next";
 
 import { beerType } from "@types";
-import { Cards } from "@components/scss";
+import { Cards } from "@components/sections";
 
 type HomeTypeProps = {
     beers: beerType[];
